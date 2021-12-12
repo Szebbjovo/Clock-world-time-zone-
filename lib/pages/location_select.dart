@@ -9,14 +9,7 @@ class ChooseLocation extends StatefulWidget {
 
 class _ChooseLocationState extends State<ChooseLocation> {
 
-  int counter = 0;
 
-  @override
-  void initState(){
-
-    super.initState();
-    print('initstate function ran');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,14 +21,6 @@ class _ChooseLocationState extends State<ChooseLocation> {
         title: Text('choose The location'),
         centerTitle: true,
         elevation: 0,
-      ),
-      body: RaisedButton(
-        onPressed: (){
-          setState((){
-            counter += 1;
-          });
-        },
-        child: Center(child: Text('counter is : $counter')),
       ),
     );
   }

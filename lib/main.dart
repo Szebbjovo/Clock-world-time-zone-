@@ -5,7 +5,7 @@ import 'package:world_clock/pages/location_select.dart';
 
 
 void main() => runApp(MaterialApp(
-initialRoute: '/home',
+initialRoute: '/',
  routes: {
    '/': (context) => Loading(),
    '/home': (context) => Home(),
