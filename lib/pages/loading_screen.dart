@@ -26,6 +26,21 @@ class _LoadingState extends State<Loading> {
 
     //print(data);
 
+
+    //get properties from fata
+    String datetime = data['datetime'];
+    String offset = data['utc_offset'].substring(1,3);
+
+    //print(datetime);
+    //print(offset);
+
+    //date time object
+
+    DateTime now = DateTime.parse(datetime);
+    now = now.add(Duration(hours: int.parse(offset)));
+    print(now);
+
+
   }
 
   @override
