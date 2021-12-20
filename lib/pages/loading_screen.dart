@@ -13,22 +13,41 @@ class Loading extends StatefulWidget {
 
 class _LoadingState extends State<Loading> {
 
-void setupWorldTIme(){
-  WorldTime instaLeves = WorldTime(location: 'Berlin', flag: 'germany.png', url: 'Eurome/Berlin');
 
-}
+
+  Future<void> setupWorldTIme() async {
+    WorldTime instaLeves = WorldTime(location: 'Berlin', flag: 'Germany.png', url: 'Europe/Berlin');
+    await instaLeves.getTime();
+
+    Navigator.pushReplacementNamed(context, '/home', arguments: {
+      'location': instaLeves.location,
+      'flag': instaLeves.flag,
+      'time': instaLeves.time
+    });
+
+  }
 
 
   @override
   void initState(){
     super.initState();
-    getTime();
+    setupWorldTIme();
+
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Text('loading screen'),
+      appBar: AppBar(
+        backgroundColor: Colors.red,
+        title: Text('resoult'),
+        centerTitle: true,
+        elevation: 0,
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(8.0),
+        child: Text('loading'),
+      ),
     );
   }
 }

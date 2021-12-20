@@ -7,24 +7,66 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
+
+
 class _HomeState extends State<Home> {
+
+  Map data = {};
+
   @override
   Widget build(BuildContext context) {
+
+    data = ModalRoute.of(context)!.settings.arguments as Map;
+    print(data);
+
+    Color szin = Colors.black;
+
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: szin,
       body: SafeArea(
-          child: Column(
-            children: <Widget>[
-              FlatButton.icon(
-                onPressed: () {
-                  Navigator.pushNamed(context, '/location');
-                },
-                icon: Icon(Icons.edit_location),
-                label: Text('Edit location',
-                style: TextStyle(color: Colors.lightBlue),
+
+          child:
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 120, 0, 0),
+            child: Column(
+              children: <Widget>[
+
+                FlatButton.icon(
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/location');
+                  },
+                  icon: Icon(
+                    Icons.edit_location,
+                    color: Colors.lightBlueAccent,
+                  ),
+                  label: Text('Edit location',
+                  style: TextStyle(color: Colors.lightBlueAccent),
+                  ),
                 ),
-              )
-            ],
+                SizedBox(height: 20.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      data['location'],
+                          style: TextStyle(
+                            fontSize: 30.0,
+                            letterSpacing: 2.0,
+                              color: Colors.white
+                ),
+                    ),
+]
+                ),
+                SizedBox(height: 20.0),
+                Text(
+                  data['time'],
+                  style: TextStyle(
+                    fontSize: 70.0,
+                    color: Colors.lightBlueAccent
+                  ),
+                ),
+              ],
+            ),
           )
       ),
     );
