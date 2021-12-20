@@ -1,4 +1,6 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:world_clock/services/world_time.dart';
 
 class ChooseLocation extends StatefulWidget {
   const ChooseLocation({Key? key}) : super(key: key);
@@ -10,6 +12,20 @@ class ChooseLocation extends StatefulWidget {
 class _ChooseLocationState extends State<ChooseLocation> {
 
 
+  List<WorldTime> locations = [
+    WorldTime(url: 'Europe/Bucharest', location: 'Bucharest',flag: 'romania.png' ),
+    WorldTime(url: 'Europe/Budapest', location: 'Budapest',flag: 'Budapest.png' ),
+    WorldTime(url: 'Europe/Brussels', location: 'Brussels',flag: 'Brussels.jpg' ),
+    WorldTime(url: 'Europe/Belgrade', location: 'Belgrade',flag: 'Belgrade.jpg' ),
+    WorldTime(url: 'Europe/London', location: 'London', flag: 'uk.jpg'),
+    WorldTime(url: 'Europe/Berlin', location: 'Berlin', flag: 'germany.png'),
+    WorldTime(url: 'Africa/Cairo', location: 'Cairo', flag: 'egypt.jpg'),
+    WorldTime(url: 'Africa/Nairobi', location: 'Nairobi', flag: 'kenya.png'),
+    WorldTime(url: 'America/Chicago', location: 'Chicago', flag: 'usa.png'),
+    WorldTime(url: 'America/New_York', location: 'New York', flag: 'usa.png'),
+    WorldTime(url: 'Asia/Seoul', location: 'Seoul', flag: 'south_korea.png'),
+
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +38,19 @@ class _ChooseLocationState extends State<ChooseLocation> {
         centerTitle: true,
         elevation: 0,
         foregroundColor: Colors.lightBlue,
+      ),
+      body: ListView.builder(
+          itemCount: locations.length,
+          itemBuilder: (context, index) {
+            return Card(
+              child: ListTile(
+                onTap: () {},
+                title: Text(locations[index].location),
+                leading: CircleAvatar(backgroundImage: AssetImage('assets/${locations[index].flag
+                }'),)
+              ),
+            );
+          }
       ),
     );
   }

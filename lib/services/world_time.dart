@@ -8,6 +8,7 @@ class WorldTime {
   late String time; // the time in thtat location
   late String flag; //flag assets
   late String url; //location url api
+  late bool isDayTime; // true or false day or not :p
 
   WorldTime({required this.location, required this.flag, required this.url});
 
@@ -37,12 +38,16 @@ try{
 
 
   //set
+  isDayTime = now.hour > 6 && now.hour < 20 ? true : false;
   time = DateFormat.jm().format(now);
 }
     catch (e) {
     print('Valami nem jo 😌 : $e');
     time = 'Nem erem el az API-t , sajnalom😔';
   }
+
+
+
   }
 
 
