@@ -27,6 +27,21 @@ class _ChooseLocationState extends State<ChooseLocation> {
 
   ];
 
+  void  updateTime(index) async{
+    WorldTime updateTIme = locations[index];
+    await updateTIme.getTime();
+
+
+    //send beck us to home screen
+    Navigator.pop(context, {
+      'location': updateTIme.location,
+      'flag': updateTIme.flag,
+      'time': updateTIme.time,
+      'isDayTime': updateTIme.isDayTime
+    });
+
+  }
+
   @override
   Widget build(BuildContext context) {
     print('build function ran');
@@ -42,12 +57,16 @@ class _ChooseLocationState extends State<ChooseLocation> {
       body: ListView.builder(
           itemCount: locations.length,
           itemBuilder: (context, index) {
-            return Card(
-              child: ListTile(
-                onTap: () {},
-                title: Text(locations[index].location),
-                leading: CircleAvatar(backgroundImage: AssetImage('assets/${locations[index].flag
-                }'),)
+            return Padding(
+              padding: const EdgeInsets.symmetric(vertical: 1.0, horizontal: 80.0),
+              child: Card(
+                child: ListTile(
+                  onTap: () {
+                   updateTime(index);
+                  },
+                  title: Text(locations[index].location),
+                  leading: CircleAvatar(backgroundImage: AssetImage('assets/${locations[index].flag}'),)
+                ),
               ),
             );
           }
