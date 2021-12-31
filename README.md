@@ -1,16 +1,9 @@
-# world_clock
+You can select a city / timezone and the application will show you the curent time ⌚. 
+(the background changes according to the part of the day _day/night)
+![image](https://user-images.githubusercontent.com/78962708/147820978-2e47a3b6-0c35-4ce3-9a4f-f982f60f3d3a.png)
 
-A new Flutter project.
+![image](https://user-images.githubusercontent.com/78962708/147821043-c3804872-90e1-4234-ba73-3ce93997126b.png)
 
-## Getting Started
+There is a list of the city's/time zones.
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![image](https://user-images.githubusercontent.com/78962708/147820996-009c3268-57eb-47a0-9ddd-e3ef60481fb3.png)
